@@ -113,7 +113,9 @@ class Plant:
         priority, tags = ("high", "rotating_light") if d.tier == "ACT" else ("default", "warning")
         delivered = send_alert(title, "\n".join(body), priority, tags, heatmap_path)
         self.state["alerts"].append({"title": title, "delivered": delivered, "sent_at": iso(now_utc())})
-        return "Alert delivered to phone" if delivered else "Alert logged (not delivered)"
+        if not delivered:
+            raise RuntimeError("alert NOT delivered")
+        return "Alert delivered to phone"
 
     # ---------- irreversible actions: only via human approval ----------
     def request_approval(self, d, action):
