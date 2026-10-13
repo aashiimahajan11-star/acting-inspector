@@ -12,5 +12,5 @@ DEFECT_RATE = 0.02       # realistic share of defective parts on the line (2%)
 
 # --- Step 7: actions and alerts ---
 ALERTS_ENABLED = True
-ALERT_TOPIC = "acting-inspector-387a1653"     # your private ntfy topic
+ALERT_TOPIC = __import__("os").environ.get("NTFY_TOPIC", "")  # set in your shell, never commit it
 PAUSE_SECONDS = 30         # how long an automatic line pause lasts
