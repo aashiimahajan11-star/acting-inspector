@@ -1,0 +1,8 @@
+anomalib
+torch
+torchvision
+pandas
+numpy
+matplotlib
+streamlit
+requests
