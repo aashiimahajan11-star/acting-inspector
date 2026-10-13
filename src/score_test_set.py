@@ -30,7 +30,7 @@ def save_heatmap(img, amap, out_path, score, defect_type):
     axes[0].imshow(img)
     axes[0].set_title(f"actual: {defect_type}", fontsize=11)
     axes[1].imshow(img)
-    axes[1].imshow(amap, cmap="inferno", alpha=0.5)
+    axes[1].imshow(amap, cmap="inferno", alpha=0.5, vmin=0, vmax=1)
     axes[1].set_title(f"anomaly score: {score:.2f}", fontsize=11)
     for ax in axes:
         ax.axis("off")
